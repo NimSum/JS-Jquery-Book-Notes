@@ -11,6 +11,9 @@ h1 {
 .container {
 	margin: 20px;
 }
+.bold {
+	font-weight: bold;
+}
 </style>
 <body>
 	<div class="container">
@@ -50,7 +53,7 @@ h1 {
 
 	<!-- ARRAYS -->
 	<div>
-		<h4>ARRAYS</h4>
+		<h4>ARRAYS EXAMPLE</h4>
 		<p>COLOR:<span id="colors"></span></p>
 	</div>
 
@@ -77,7 +80,37 @@ h1 {
 		<h5>Basic Function Example:</h5>
 		<div id= "message">Here lies the example code from the book</div>
 	</div>
-</div>
+
+	<br>
+
+	<div>
+		<h4>Variable Scope: Line 176</h4>
+		<p>Variable Location is important!, variables inside a function are only available within that function called Local Variables</p>
+		<p>Global variables are variables placed outside of a function! It uses more memory because it keeps them as long as the page is open</p>
+		<p>It is good practice to use local scopes for better readability and decrease chances of naming conflict</p>
+
+	</div>
+
+	<br>
+
+	<div>
+		<h4>Basic Objects: Line 186</h4>
+		<p>Objects are created using name(key):value pairs and functions that form a model<p>
+		<p>Variables become Properties, Functions become Methods</p>
+		<p>Property & Method names are called Keys(used to access their value)</p>
+		<p>Ways to create an Object - Literal Notation, maybe more in the future</p>
+		<p class= "bold">ACCESSING OBJECTS:Line 201</p>
+		<p>Can use the dot(.) notation OR the bracket [] notation</p>
+		<p>Bracket notation is used when object key has special characters(i.e '-') or a variable is being used in place of a property name</p>
+		<div>Cookie Counter Example(using object):
+			<p>(See Line 228) <span id= "cookies"></span><p>
+		</div>
+
+		<br>
+
+		<div>
+			<p class="bold">Creating Object Using Constructor Notation</p>
+		</div>
 </body>
 <script src="app.js"></script>
 </html>
