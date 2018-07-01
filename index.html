@@ -53,6 +53,8 @@ h1 {
 
 	<!-- ARRAYS -->
 	<div>
+		<p>Arrays Basics SEE LINE 71</p>
+		<p>Used to store multiple pieces of info. compared to objects, the key is the value/location in that array i.e [0]</p>
 		<h4>ARRAYS EXAMPLE</h4>
 		<p>COLOR:<span id="colors"></span></p>
 	</div>
@@ -109,8 +111,78 @@ h1 {
 		<br>
 
 		<div>
-			<p class="bold">Creating Object Using Constructor Notation</p>
+			<p class="bold">Creating an Object Using Constructor Notation Line: 230</p>
+			<p>Can be used to add properties and methods to any object that is created</p>
 		</div>
+
+		<br>
+
+		<div>
+			<p class="bold">Creating Multiple objects using constructor notation See Line 248</p>
+			<p>Functions are used to create an object template</p>
+			<p>If using a function for an object constructor, the first letter is in CAPS</p>
+			<p>The cap first letter reminds dev's to use "new" when using said function</p>
+			<p> 4 ways to make an Object</p>
+			<p class='bold'>Literal Notation:</p>
+			<p>Create then ADD properties/methods: var cars  = { stuff: stuff, method = ... };</p>
+			<p>Creating WITH Properties/methods: var cars = { prop:value, method = .... };<p>
+			<p>Good for storing/transmitting data btwn apps or for global & configuration objects that sets up info for the page.</p>
+			<p class = 'bold'>Object Constructor:</p>
+			<p>Create then ADD properties/methods: var cars = new Object () then insert whatever later;</p>
+			<p>Create WITH properties/values: function Cars (props, props, props) {this.prop, this.prop, this.prop... methods using props...}; use var newObject = new Cars(prop, prop, prop) SEE LINE 249!</p>
+			<p>Good for multiple objects w/ same functionality or complex object that might not be used in code</p>
+		</div>
+
+		<br>
+
+		<div>
+			<p class= 'bold'>The 'this' KEYWORD - PG 114</p>
+			<p>Refers to objects depending where it is inside of, like a function</p>
+			<p> If attempting to use variables inside a function and not global vars, it will explicitly use that variable inside that function and not in the 'global scope'</p>
+			<p> If 'this' is written inside a function/method in an object, 'this' refers to variables INSIDE that object</p>
+			<p>Function Expression as method SEE LINE 263</p>
+		</div>
+
+		<br>
+
+		<div> 
+			<p class= "bold">ARRAYS: A lil more in-depth, SEE line 277</p>
+			<p> Arrays ARE Objects, a special kind of object :)</p>
+			<p> Arrays & Objects can be combined to form complex data structures</p>
+		</div>
+
+		<br>
+
+		<div>
+			<p class= "bold">Built in Objects - Page 121</p>
+			<p>Browsers contain built in objects that contain basic functionality that's needed for basic scripts</p>
+			<p>Can be accessed using the dot(.) notation</p>
+			<p class="bold">Tool kit comes in three 'compartments'</p>
+			<p>1: Browser Object Model: Represents current window/tab</p>
+			<p>2: Document Object Model: Uses objects to create a representation of the current page</p>
+			<p>3: Global JS Objects: Represents things that JS needs to create a model of(i.e dates or times) </p>
+			<p class= "bold">Browser Object Model:</p>
+			
+			<div>
+				<h4>WINDOW</h4>
+					<p>The UPPERMOST object, Current browser window/tab</p> <p>Below are child objects:</p>
+					<p>EX: window.print(); will 'print' a dialog box popup</p>
+				<ul>
+					<li><h4>Document</h4>Current Web Page
+						<p>DOM:Document Object Model - The current model of the web page</p>
+						<p>EX: docoment.getElementById('idHere');</p>
+						<p>EX: document.lastModified; shows when the page was last updated
+					</li>
+					<li><h4>History</h4>Pages in browser History</li>
+					<li><h4>Location</h4> URL of the current page</li>
+					<li><h4>Navigator</h4>Info about the browser</li>
+					<li><h4>Screen</h4>Device's Display Info
+						<p>EX: window.screen.width; will find the width of device screen</p></li>
+				</ul>
+			</div>
+		</div>
+
+
 </body>
-<script src="app.js"></script>
+<script src="chapter1-4.js"></script>
 </html>

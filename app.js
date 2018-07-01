@@ -245,9 +245,42 @@ console.log(computer);
 delete computer.graphics;
 console.log(computer);
 
+//Multi Object Constructor: Function used as a template
+function Cars(brand, model, paintColor) {
+	this.brand = brand;
+	this.model = model;
+	this.paintColor = paintColor;
+
+	this.checkCar = function() {
+		return this.brand + this.model + this.paintColor;
+	};
+}
+var bmw = new Cars('BMW', ' 2 Series', ' Black', 'blue');
+console.log(bmw.checkCar());//bmw becomes the object;
+var ford = new Cars('Ford ', 'Mustang ', 'Lime Green');
+console.log(ford.checkCar());
+
+///Function expression as a method 
+var height = 10;
+var shape = {
+	height: 6,
+	width: 10,
+	length: 2,
+};
+var showVolume = function () {
+	console.log(this.width * this.height * this.length);
+} ///the height is taken from the shape object, not from the global variable
+shape.thisVolume = showVolume;
+shape.thisVolume();
+
+
+//ARRAYS a lil more in - depth
+//Combining arrays and objects and vise versa
+//Arrays in an Object
 
 
 
+///Built in Objects
 
 
 
