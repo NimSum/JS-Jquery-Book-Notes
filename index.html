@@ -146,15 +146,15 @@ h1 {
 		<br>
 
 		<div> 
-			<p class= "bold">ARRAYS: A lil more in-depth, SEE line 277</p>
+			<p class= "bold">ARRAYS: A lil more in-depth, SEE line </p>
 			<p> Arrays ARE Objects, a special kind of object :)</p>
-			<p> Arrays & Objects can be combined to form complex data structures</p>
+			<p> Arrays and Objects can be combined to form complex data structures</p>
 		</div>
 
 		<br>
 
 		<div>
-			<p class= "bold">Built in Objects - Page 121</p>
+			<h3>Built in Objects - Page 121</h3>
 			<p>Browsers contain built in objects that contain basic functionality that's needed for basic scripts</p>
 			<p>Can be accessed using the dot(.) notation</p>
 			<p class="bold">Tool kit comes in three 'compartments'</p>
@@ -164,14 +164,25 @@ h1 {
 			<p class= "bold">Browser Object Model:</p>
 			
 			<div>
-				<h4>WINDOW</h4>
-					<p>The UPPERMOST object, Current browser window/tab</p> <p>Below are child objects:</p>
-					<p>EX: window.print(); will 'print' a dialog box popup</p>
+				<h4>Window</h4>
+					<p>The UPPERMOST object, Current browser window/tab. Examples are in Pg 124</p> 
+					<p>Method EX: window.print(); will 'print' a dialog box popup</p>
+					<p>Property EX: window.screenX; or Y - represents pointer location</p>
+					<p>Listed below are child objects:</p>
+					<p>See app.js Line #
+					<span id= "info"><span>
+			<div>
+			<br>
+			<div>		
 				<ul>
 					<li><h4>Document</h4>Current Web Page
 						<p>DOM:Document Object Model - The current model of the web page</p>
 						<p>EX: docoment.getElementById('idHere');</p>
 						<p>EX: document.lastModified; shows when the page was last updated
+							<div>
+								<p class= "bold">DOM Ex: see Line 296</p>
+								<span id= "domExample"></span>
+							</div>
 					</li>
 					<li><h4>History</h4>Pages in browser History</li>
 					<li><h4>Location</h4> URL of the current page</li>
@@ -179,10 +190,58 @@ h1 {
 					<li><h4>Screen</h4>Device's Display Info
 						<p>EX: window.screen.width; will find the width of device screen</p></li>
 				</ul>
+			</p>
+				<br>
+			<div>
+				<h4>Global JS Objects</h4>
+				<p>Global Objects start with Caps (ie. Date, String...etc)
+				<ul>
+					<li>
+						<h4>Objects that represent basic data types:</h4>
+						<p>#1 to 5 are Primitive, #6 is Complex</p>
+						<p class="bold">1:STRING</p>
+							<p>For working on strings</p>
+							<p>Ex below are from line 305</p>
+							<div>
+								<span id= 'stringEx'></span>
+							</div>
+						<br>
+
+						<p class="bold">2:NUMBER</p>
+							<p>For numeric values</p>
+
+						<br>
+						<p class="bold">3:BOOLEAN</p>
+							<p>For boolean values</p>
+						<br>
+						<div>
+						<h4></h4>
+						<p class="bold">4:Undefined</p>
+							<p>Var with no value asigned yet</p>
+							<p class="bold">5:NULL</p>
+							<p>var with no value</p>
+							<p class="bold">6:OBJECT - Complex Data Type</p>
+							<p>Containes arrays and functions and so on</p>
+						</div>
+
+					</li>
+
+					<li>
+						<h4>Objects that deal w/ Real world concepts</h4>
+						<p class="bold">DATE:</p>
+							<p> Represent and handle dates</p>
+						<p class="bold">MATH:<p> 
+							<p>For numeric calculations</p>
+							<p>EX: Math.PI; returns the value of pi
+						<p class="bold">REGEX:</p>
+						 	<p>For matching patterns within strings</p>
+					</li>
+				</ul>
 			</div>
+
 		</div>
 
 
 </body>
-<script src="chapter1-4.js"></script>
+<script src="app.js"></script>
 </html>

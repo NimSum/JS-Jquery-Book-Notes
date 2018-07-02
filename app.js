@@ -279,10 +279,42 @@ shape.thisVolume();
 //Arrays in an Object
 
 
-
 ///Built in Objects
+//Browser Object Model EX:
+var msg = '<h5>Browser window EX:</h5><p>width: ' + window.innerWidth + '</p>';
+msg += '<p>height: ' + window.innerHeight + '</p>';
+msg += '<h5>History EX:</h5><p>items:' + window.history.length + '</p>';
+msg += '<h5>Screen EX:</h5><p>width:' + window.screen.width + '</p>';
+msg += '<p>height:' + window.screen.height + '</p>';
+var el = document.getElementById('info');
+el.innerHTML = msg;
+//alert('Current page: ' + window.location); = popup that shows the url
+
+//Document Object EX:
+var msg = '<p><b>page title:: </b>' + document.title + '<br />';
+msg += '<b>page adress: </b>' + document.URL + '<br />';
+msg += '<b>last modified: </b>' + document.lastModified + '<br />';
+msg += '<b>The creator: NimSum</b> </p>';
+
+var insertDom = document.getElementById('domExample');
+insertDom.innerHTML = msg;
 
 
+//Global JS Objects
+//STRINGS:
+var flatTards = 'The earth must be flatt because...';
+var msg = '<p class="bold">' + flatTards + '</p>';
+msg += '<p class="bold">length</p><p>' + flatTards.length + '</p>';
+msg += '<p class="bold">upperCase</p><p>' + flatTards.toUpperCase() + '</p>';
+msg += '<p class="bold">lowerCase</p><p>' + flatTards.toLowerCase() + '</p>';
+msg += '<p class="bold">character index: </p><p>' + flatTards.charAt(9) + '</p>';
+msg += '<p class="bold">first "tt"</p><p>' + flatTards.indexOf('tt') + '</p>';
+msg += '<p class="bold">last e</p><p>' + flatTards.lastIndexOf('e') + '</p>';
+msg += '<p class="bold">character index: 5-10</p><p>' + flatTards.substring(5, 10) + '</p>';
+msg += '<p class="bold">replace</p><p>' + flatTards.replace('flatt', 'round') + '</p>';
+
+var insertStrExample = document.getElementById('stringEx')
+insertStrExample.innerHTML = msg;
 
 	
 
