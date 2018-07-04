@@ -13,7 +13,8 @@ if (hourNow > 18) {
 	greeting = 'Welcome'
 }
 
-document.write('<h3>' + greeting + '</h3>');
+var sayWhatever = document.getElementById('sayWhatNow');
+sayWhatever.textContent = greeting;
 
 
 //page 63 
@@ -304,17 +305,45 @@ insertDom.innerHTML = msg;
 //STRINGS:
 var flatTards = 'The earth must be flatt because...';
 var msg = '<p class="bold">' + flatTards + '</p>';
-msg += '<p class="bold">length</p><p>' + flatTards.length + '</p>';
-msg += '<p class="bold">upperCase</p><p>' + flatTards.toUpperCase() + '</p>';
-msg += '<p class="bold">lowerCase</p><p>' + flatTards.toLowerCase() + '</p>';
-msg += '<p class="bold">character index: </p><p>' + flatTards.charAt(9) + '</p>';
-msg += '<p class="bold">first "tt"</p><p>' + flatTards.indexOf('tt') + '</p>';
-msg += '<p class="bold">last e</p><p>' + flatTards.lastIndexOf('e') + '</p>';
-msg += '<p class="bold">character index: 5-10</p><p>' + flatTards.substring(5, 10) + '</p>';
-msg += '<p class="bold">replace</p><p>' + flatTards.replace('flatt', 'round') + '</p>';
+msg += '<p>length: ' + flatTards.length + '</p>';
+msg += '<p>upperCase: ' + flatTards.toUpperCase() + '</p>';
+msg += '<p>lowerCase: ' + flatTards.toLowerCase() + '</p>';
+msg += '<p>character index: : ' + flatTards.charAt(9) + '</p>';
+msg += '<p>first "tt": ' + flatTards.indexOf('tt') + '</p>';
+msg += '<p>last e: ' + flatTards.lastIndexOf('e') + '</p>';
+msg += '<p>character index: 5-10: ' + flatTards.substring(5, 10) + '</p>';
+msg += '<p>replace: ' + flatTards.replace('flatt', 'round') + '</p>';
 
 var insertStrExample = document.getElementById('stringEx')
 insertStrExample.innerHTML = msg;
+
+
+///Number Object Manipulation
+var pi = 3.14159265359;
+
+var msg = '<p class= "bold"> PI up to 11 Decimal Places: ' + pi + '</p>';
+msg += '<p> Rounded @ 4 decimal places: ' + pi.toFixed(4) + '</p>';
+msg += '<p> Shortened to 4 digits: ' + pi.toPrecision(4) + '</p>';
+msg += '<p> Exponential notation:' + pi.toExponential(5) + '</p>';
+
+var insertNumberEx = document.getElementById('numberEx');
+insertNumberEx.innerHTML = msg;
+
+
+///Gloabl Math Object - Random Math creator
+var randomNum = Math.floor((Math.random() * 100) + 1);
+
+var insertRandomNum = document.getElementById('mathEx');
+insertRandomNum.textContent = randomNum;
+
+
+//Creating a Date Instance Object:
+
+
+
+
+
+
 
 	
 
