@@ -338,8 +338,21 @@ insertRandomNum.textContent = randomNum;
 
 
 //Creating a Date Instance Object:
+var today = new Date();
+var year = today.getFullYear();
+
+var insertDate = document.getElementById('dateEx');
+insertDate.innerHTML = '<p class= "bold">Copyright & Copy:' + year + '</p>'
+
+var year = today.getFullYear();
+var theDayIcameToExistance = new Date('Jul 14, 1994 00:01:01');//YYYY, MM, DD, HH, MM, SS
+var totalExistance =  today.getTime() - theDayIcameToExistance.getTime();
+var totalMonths = (totalExistance / 2592000000);
+totalExistance = Math.floor(totalExistance / 31556900000);
 
 
+var insertTotalExistance = document.getElementById('existance');
+insertTotalExistance.innerHTML = '<p class="bold">I am ' + totalExistance + ' years old</p>';
 
 
 
