@@ -339,20 +339,84 @@ insertRandomNum.textContent = randomNum;
 
 //Creating a Date Instance Object:
 var today = new Date();
-var year = today.getFullYear();
+var year = today.getFullYear();//grabs full year
 
 var insertDate = document.getElementById('dateEx');
 insertDate.innerHTML = '<p class= "bold">Copyright & Copy:' + year + '</p>'
 
-var year = today.getFullYear();
-var theDayIcameToExistance = new Date('Jul 14, 1994 00:01:01');//YYYY, MM, DD, HH, MM, SS
-var totalExistance =  today.getTime() - theDayIcameToExistance.getTime();
-var totalMonths = (totalExistance / 2592000000);
-totalExistance = Math.floor(totalExistance / 31556900000);
-
+//Date instance that calculates my birthday
+var year = today.getFullYear();//get current year
+var theDayIcameToExistance = new Date('Jul 14, 1994 00:01:01');//YYYY, MM, DD, HH, MM, SS -- sets my birthday
+var totalExistance =  today.getTime() - theDayIcameToExistance.getTime();//returns total years in miliseconds
+var totalMonths = (totalExistance / 2592000000);// to get total months
+totalExistance = Math.floor(totalExistance / 31556900000);//to get total years divided by total miliseconds in a year
 
 var insertTotalExistance = document.getElementById('existance');
 insertTotalExistance.innerHTML = '<p class="bold">I am ' + totalExistance + ' years old</p>';
+
+
+///FUNCTIONS, METHODS, AND OBJECTS COMBINED
+(function() {//IIFE Wrap
+ 	
+ 	var carForSale = {///Object declaration
+ 		description: 'Black BMW M235i',//object property
+ 		price: 30000,
+ 		discount: 10,
+ 		militaryDiscount: 5,
+ 		discounted: function () {//object method
+ 			var discountedPrice = this.price * ((100 - this.discount) / 100);
+ 			return discountedPrice;
+ 		},
+ 		militaryDiscounted: function () {
+ 			var militaryPrice = this.price * ((100 - (this.discount+this.militaryDiscount)) / 100)
+ 			return militaryPrice;
+ 		}
+ 	};
+ 	///declare variables and assign values later
+ 	var description, price, discount, militaryDiscount;
+
+ 	description = document.getElementById('carDescription');
+ 	price = document.getElementById('pricing');
+ 	discount = document.getElementById('priceWithDiscount');
+ 	militaryDiscount = document.getElementById('military');
+ 	///standard insert text
+ 	description.textContent = carForSale.description;
+ 	price.textContent = '$' + carForSale.price.toFixed(2);//adds 2 dec places 30000.00
+ 	discount.textContent = '$' + carForSale.discounted();
+ 	militaryDiscount.textContent = '$' + carForSale.militaryDiscounted();
+
+ 	var offerExpireMsg;
+ 	var today;
+ 	var offerEnds;
+ 	var space;
+
+ 	function offerExpires(today) {
+ 		//declare variables for date setting
+ 		var twoWeeksFromToday, day, date, month, year, dayNames, monthNames;
+ 		//add 14 days to current day in Miliseconds
+ 		twoWeeksFromToday = new Date(today.getTime() + 14 * 24 * 60 * 60 * 1000);
+ 		//Day names in a an array
+ 		dayNames = ['Monday :/', 'Tuesday :|', 'Wednesday :||', 'Thursday :)', 'Friday :D', 'Satpartay', 'Sunday :('];
+ 		monthNames = ['Jan', 'Feb', 'Mariversarry', 'Apr', 'May', 'Jun', 'Julibirthday', 'Sep', 
+ 						'Oct', 'Nov', 'Decemhohoho'];
+ 		//set dates to vars created
+ 		day = dayNames[twoWeeksFromToday.getDay()];
+ 		date = twoWeeksFromToday.getDate();
+ 		month = monthNames[twoWeeksFromToday.getMonth()];
+ 		year = twoWeeksFromToday.getFullYear();
+
+ 		//message creation
+ 		offerExpireMsg = 'Offer expires in two weeks: ';
+ 		space = ' ';
+ 		offerExpireMsg += '<br />(' + day + space + date + space + month + space + year + ')';
+ 		return offerExpireMsg;
+ 	}	
+
+ 	today = new Date('Jul 1, 2018 00:01:01');//insert start date, current time & date is default when blacnk
+ 	offerEnds = document.getElementById('offerExpiration');
+ 	offerEnds.innerHTML = offerExpires(today);//calls function that calculates 2 weeks and gives today as starting date
+//IIFE Closing
+}());
 
 
 
