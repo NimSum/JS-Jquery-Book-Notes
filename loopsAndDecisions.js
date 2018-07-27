@@ -136,6 +136,7 @@ if (testerString === 'i_am_a_robot') {
 
 document.getElementById('loopsAndDecisionsEx').innerHTML = loopAndDecisions;
 
+/////////////END OF CHAPTER 4/////////////////
 
 
 
