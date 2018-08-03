@@ -32,7 +32,6 @@
 			<h4 class= "greeting">IF Statements Ex: Line 45</h4>
 			<p class= "bold">If condition results to "true". It will execute code inside {....} curly braces.</p>
 			<p> The if - else statement: If the "if" statement returns false, the else statement is executed</p>
-
 			<h4 class= "greeting">SWITCH Statements Ex: Line 55</h4>
 			<p> Starts with a switch value, for that value, a switch statement can be created and code can be run when that value is met.</p>
 			<p> Each case statment has to be ended with a 'break;' keyword to tell the interpreter to finish and proceed to whatever code outside of the switch statement.</p>
@@ -111,9 +110,97 @@
 					<p>Ex: The "h1, h2, p," tags inside <....></p>
 					<p>Used to specifically find a target or access elements inside the DOM tree</p>
 				</li>
+				<li>
+					<p><b>Attribute Node:</b>Represents attributes assigned to the dom tree elements. NOT a child but IS a part of the element carrying it</p>
+				</li>
+				<li>
+					<p><b>Text Node:</b> Texts within an element, stored inside its own node and cannot have children
+				</li>
 			</ul>
 		</div>
 
+		<br>
+
+		<div class= "border">
+			<h4>DOM MANIPULATION BASICS</h4>
+			<b>Two Steps to DOM Manipulation:</b>	
+			<p><b>ONE:</b>Accesss the element</p>
+				<p>Methods that find elements inside the DOM are called <b>DOM Queries:</b>Store results inside a variable</p>
+			<p><b>TWO:</b>Manipulate the element</p>
+			<div class= "border">
+				<p><b>ACCESSING</b></p>
+				<b>Changing CSS values: PG 195, Line 1 @ dom.js</b>
+				<ul>
+					<li class= "warmColor" id= "one">ONE</li>
+					<li class= "warmColor" id= "two">TWO</li>
+					<li class= "warmColor" id= "three">THREE</li>
+					<li class= "warmColor" id= "four">FOUR</li>
+				</ul>
+				<b>Accessing Node Lists:</b>
+				<p>Node Lists look & are numbered like arrays but they are not, it is a type of object called "collection"</p>
+				<p>Node lists also come with properties & methods that can be used like ".length" or "item(whatever)"</p>
+				<p>Ways to select elements inside a Node List</p>
+				<p>The <b>"item()"</b> method: indexed like arrays ie. 0,1,2,.. </p>
+				<p>The <b>Array Syntax</b> name[0,1,2,..] also allows access</p>
+				<b>Ex below @ Line 8</b>
+				<ul>
+					<li class= "warmColor" id= "elemA">ONE</li>
+					<li class= "warmColor" id= "elemB">TWO</li>
+					<li class= "warmColor" id= "elemC">THREE</li>
+					<li class= "warmColor" id= "elemD">FOUR</li>
+				</ul>
+				<p><b>Query Selection: Line 15</b></p>
+				<p>TWO Methods</p>
+				<p>'.querySelector('.blah')':Returns first match</p>
+				<p>'.querySelectorAll('.blah)':Returns a NodeList</p>
+				<ul>
+					<li class= "queryExample" id= "#">ONE</li>
+					<li class= "queryExample" id= "#">TWO</li>
+					<li class= "queryExample" id= "#">THREE</li>
+					<li class= "queryExample" id= "#">FOUR</li>
+				</ul>
+
+				<p><b>Looping NodeList: Line 22</b></p>
+				<ul>
+					<li class= "loopQueryEx" id= "#">ONE:skipped</li>
+					<li class= "loopQueryEx" id= "#">TWO:skipped</li>
+					<li class= "loopQueryEx" id= "#">THREE</li>
+					<li class= "loopQueryEx" id= "#">FOUR</li>
+					<li class= "loopQueryEx" id= "#">FIVE</li>
+					<li class= "loopQueryEx" id= "#">SIZ</li>
+					<li class= "loopQueryEx" id= "#">SEVEN</li>
+					<li class= "queryExample" id= "#">EIGHT: different query name</li>
+				</ul>
+
+				<p><b>Traversing the DOM: Line 33</b></p>
+				<p>Using selected node elements can also give access to other elements in relation to it</p>
+				<p>5 Ways of Traversing</p>
+				<p>"parentNode": moves up one element, ie returns &lt;ul&gt; if &lt;li&gt; is targetted</p>
+				<p>"nextSibling": moves up one step, returns NodeList[2] if targetting NodeList[1]</p>
+				<p>"previousSibling": moves down one step, returns NodeList[0] if targetting NodeList[1]</p>
+				<p>"firstChild":returns first element inside the nodelist</p>
+				<p>"lastChild":returns last element inside a nodelist</p>
+				<p>Using above properties can be difficult sometimes because of <b>whitespace nodes:</b> they are placed between elements and can complicate using these properties. Using Jquery or other libraries can fix this</p>
+				<p><b>EX below if no whitespace exist</b></p>
+				<ul>
+					<li class= "domTraversing" id= "#">ONE</li>
+					<li class= "domTraversing" id= "#">TWO</li>
+					<li class= "domTraversing" id= "#">THREE</li>
+					<li class= "domTraversing" id= "#">FOUR</li>
+					<li class= "domTraversing" id= "#">FIVE</li>
+					<li class= "domTraversing" id= "#">SIZ</li>
+					<li class= "domTraversing" id= "#">SEVEN</li>
+					<li class= "domTraversing" id= "#">EIGHT:</li>
+				</ul>
+				<p><b>EX doesnt work cuz whitespace exist in chrome, gotta use a library >.> </b></p>
+			</div>
+			
+			<br>
+
+			<div class= "border">
+			<p><b>UPDATING/MANIPULATING CONTENT</b></p>
+			</div>
+		</div>
 	</div>
 
 
