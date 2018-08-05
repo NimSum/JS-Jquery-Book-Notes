@@ -34,4 +34,40 @@ console.log(greenToYellow);
 var queryTraversion = document.querySelectorAll('.domTraversing');
 var elementUp = queryTraversion[0].nextSibling;
 elementUp.className = 'redText';
-console.log(elementUp);
+
+//access & update text node
+var targetId = document.getElementById('nodeManipulation')
+var targetNode = targetId.firstChild.nodeValue;
+console.log(targetNode)
+
+newTextContent = targetNode.replace('Fast', 'Slow');
+targetId.firstChild.nodeValue = newTextContent;// swap/replace values.
+
+//Adding an Element to the DOM tree
+//specify what element to create(any html tag?)
+var newElement = document.createElement('li');
+//specify what kinda text u want in there
+var newText = document.createTextNode('Nimsum does not belong in this list');
+//insert text inside the element
+newElement.appendChild(newText);
+//find the element you wanna insert it to, at [1] because i wanna target the second ordered list 
+var insertLocation = document.getElementsByTagName('ol')[1];
+//insert completed element+text ndoe
+insertLocation.appendChild(newElement);
+
+//REMOVING ELEMENTS
+//selects the third ordered list inside dom 
+var parentElement = document.getElementsByTagName('ol')[2];
+//specify which element to be deleted
+var deleteElement = parentElement.lastChild.previousSibling;
+//delete targetted element
+parentElement.removeChild(deleteElement);
+
+//
+
+
+
+
+
+
+

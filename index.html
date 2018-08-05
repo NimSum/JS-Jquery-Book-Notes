@@ -199,7 +199,63 @@
 
 			<div class= "border">
 			<p><b>UPDATING/MANIPULATING CONTENT</b></p>
+			<p>Once element nodes are accessed, using <b>nodeValue</b> will allow you to ammmend that element</p>
+			<p>Example below @ line 39</p>
+			<p id= "nodeManipulation" class= "border">Fast <em>car</em></p>	
+			<p>To remove an element, set its innerHTML value to an empty string</p>
+
+			<p><b>Using innerHTML has security risk</b>, there are other ways to manipulate other than using  this method. This involves THREE STEPS:</p>
+			<h4>Adding elements</h4>
+			<ol id= "addingNode" >
+				<li>
+					<p>createElement() = create a new element node, this node is stored inside a variable.</p>
+				</li>
+				<li>
+					<p>createTextNode() = creates a new text node, stored in a variable. Can be skipped if attaching an empty element.</p>
+				</li>
+				<li>
+					<p>appendChild() = allows you to add a node to specified element within the DOM tree.</p>
+				</li>
+				<p>Example below is added from JS line 47
+			</ol>
+			<h4>Deleting elements, Steps</h4>
+			<ol>
+				<li>
+					<p>store the chosen element to be removed/deleted inside a variable
+				</li>
+				<li>
+					<p>store the parent node of that element inside a variable using .parentNode(unless specific parent was chosen you need to specifically target the child)</p>
+				</li>
+				<li>
+					<p>remove element from its containing element using removeChild()
+				</li>
+				<p>Example below was deleted, HTML line 233, JS line 58</p>
+				<li>
+					<p>This doesnt belong here hence it was deleted</p>
+				</li>
+			</ol>
+
+			<h4>Comparing techniques used to manipulate content:</h4>
+				<ul>
+					<li>
+						<p><b>document.write()</b> not recommended(many disadvantages), used for introducing beginners how to add content easily</p>
+					</li>
+					<li>
+						<p><b>element.innerHTML</b> uses less code, can be faster that dom manipulation, and easily remove content by assigning blank strings.</p>
+						<p>has security issues, makes isolating elements to update hard on larger DOMS, event handler issues</p>
+					</li>
+					<li>
+						<p><b>Dom Manipulation: </b> best suited for changing single elements, doesnt affect event handlers, easier to add elements incrementally </p>
+						<p>slower than html(if adding alot of changes), MORE code</p>
+					</li>
+				</ul>
 			</div>
+		</div>
+
+		<br>
+		
+		<div class= "border">
+			<h3>SECURITY: XSS Attacks</h3>
 		</div>
 	</div>
 
