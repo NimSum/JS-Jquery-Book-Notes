@@ -63,7 +63,57 @@ var deleteElement = parentElement.lastChild.previousSibling;
 //delete targetted element
 parentElement.removeChild(deleteElement);
 
-//
+//ATTRIBUTE NODES
+var attributeNode = document.getElementById('attributeNodeExample');
+
+if (attributeNode.hasAttribute('class')) {//if true, execute code below
+	var classContainer = attributeNode.getAttribute('class');//returns class of element selected
+
+	var insertTo = document.getElementById('insertAttributeHere');//locate where to input content
+	insertTo.innerHTML = '<p>This element has a class name: ' + classContainer + '</p>';//content being inserted
+};
+
+//to create/change attribute values
+var attributeNodeList = document.getElementById('attributeNodeListExample');
+var firstListItem = attributeNodeList.firstChild.nextSibling;
+firstListItem.className = 'domTraversing';
+
+//deleting an attribute
+var fourthItem = attributeNodeList.lastChild.previousSibling;
+if (fourthItem.hasAttribute('class')) {//its good to check for conntent first because if it doesnt then it will cause an error
+	fourthItem.removeAttribute('class');
+}
+
+//MORE EXAMPLES FROM BOOK
+//adding new item in the beginning of a list
+//Create Element & Text Nodes > Combine the two > Add Element Node to DOM Tree
+var newFirstItem = document.createElement('li');
+var newFirstText = document.createTextNode("I'm Number ONE NOW!");
+
+newFirstItem.appendChild(newFirstText);//combine new element + text 
+attributeNodeList.insertBefore(newFirstItem, attributeNodeList.firstChild.nextSibling);//insert into the DOM
+//use this template for above code "parent.insertBefore(newItem, target);"
+
+//final Example
+
+//find the ul that you wanna manipulate
+var finalListExample = document.getElementById('finalExample');
+//creat variable for items inside
+var listItems = finalListExample.getElementsByTagName('li')
+//set i to 0, run until i = length of the list, increment i
+for (var i = 0; i < listItems.length; i++) {
+	listItems[i].className = 'warmColor';// set i into list item to loop through them
+}
+//to add total items on list to bottom of list
+var tagSelector = document.getElementById('whatever');
+var selectedTagText = tagSelector.firstChild.nodeValue;
+var totalListItems = listItems.length;
+tagSelector.innerHTML = '<h4>Total List is: ' + totalListItems + '<h4>';
+console.log(selectedTagText);
+
+////END OF CHAPTER 5//////
+
+
 
 
 
