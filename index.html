@@ -3,361 +3,68 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href= "css/style.css">
-	<title>JS Book</title>
-	<title>Decisions And Loops</title>
+	<title>Events</title>
+	<title>Chapter 6</title>
 </head>
 <body>
-	<h1>CHAPTER 4:Decisions and Loops</h1>
-	<div class= "border">
-		<h3 class= "greeting">Decision Making</h3>
+<h1>Chapter 6: Events</h1>
+<div class= "border">
 
-		<p class= "bold">Using flowcharts can help when determining which code to run.</p>
-		<div class= "border">
-			True/False Operator Example: JS Line 2
-			<p>Speed Limit: 60</p>
-			<p>Current Speed: 66</p>
-			<p><span id="quickExample"></span></p>
-			<p>Over the limit Ticket (no more than 5 mph):<span id= "ticketed"></span></p>
-		</div>
-		<p>Operands does not have to be a single value, it can also be an expression. 
-			<p>((speed1 + speed2) == (limit1 + limit2))
-		<ul>
-			<h4>Logical Operators</h4>
-			<li>"&&" Ex at Line 32: At least both values must be met to return true</li>
-			<li>"||" Ex at line 34 : At least one of values must be met to return true</li>
-			<li>"!" Ex at line 35: Logical NOT, reverses/inverts boolean value</li>
-			<p>Logical expressions are evaluated left to right. If first condition is met, then there is no need to go to the second condition</p>
-		</ul>
-		<div> 
-			<h4 class= "greeting">IF Statements Ex: Line 45</h4>
-			<p class= "bold">If condition results to "true". It will execute code inside {....} curly braces.</p>
-			<p> The if - else statement: If the "if" statement returns false, the else statement is executed</p>
-			<h4 class= "greeting">SWITCH Statements Ex: Line 55</h4>
-			<p> Starts with a switch value, for that value, a switch statement can be created and code can be run when that value is met.</p>
-			<p> Each case statment has to be ended with a 'break;' keyword to tell the interpreter to finish and proceed to whatever code outside of the switch statement.</p>
+	<h3>Event Handling Process:</h3>
+	<ol>
+		<li>Select Element Nodes you want a script to respond to</li>
+		<li>Indicate which event will trigger a response(called <b>"binding"</b>)</li>
+		<li>Code the response to your liking</li>
+	</ol>
 
-			<h4 class="bold">if....else vs switch ... case Statements:</h4>
-			<p>Switch statements has a default option and is faster to execute than the if statement.</p>
-			<p>if statements all statements are checked unlike switch statements, which makes it slower than the latter</p>
-
-			<h4>Type Coercion & Weak Typing EX: Line 72</h4>
-			<p>Type Coercion: Converts data to complete an operation EX: '1' > 0 returns true, '1' == 1</p>
-			<p>Weak typing: data type of values can change</p>
-			<p>Strong Typing: data type needs to be specified</p>
-			<p>To avoid type coercion errors, use STRICT operators like '===, !==,' and not '==, !=' (NaN stands for Not a Number)
-			
-			<h4>Truthy & Falsy Values: Page 167</h4>
-			<p>Due to Coercion, every value in JS can be treated as if they are true/false.</p>
-			<p>Falsy: values that are treated as if it were false</p>
-			<p>Truthy: almost anything that is NOT a falsy is a truthy. The presence of arrays & objects are also considred a truthy, common when checking for presence of an element in a page</p>
-			<p><b>Unary Operator:</b> Returns a result with one operand</p>
-			<p><b>Short Circuit Values: </b>Logical Operators are processed left-right, they short circuit as soon as they have a result. Returns value of what stopped the procecessing, not a boolean.</p>
-
-			<div class = "border">
-				<h3>LOOPS</h3>
-				<b>Example Code @ Line 72</b>
-				<br>
-				<b>Important Concepts:</b>
-				<p>Break(break;): Ends loop & continues code outside of that loop</p>
-				<p>Continue(continue;): tells loop to stop current interation & update and check condition again. if true, runs the code again.</p>
-				<p>Loops and Arrays go well together</p>
-				<p>Loops can slow down browsers if loop contains alot of items. Avoid infinite loops by placing variables outside of the loop because it will change values inside that loop and will break the script.
-					<ol>
-						<li><b>For Loop w/ Array</b>
-							<p>Often used to loop through arrays</p>
-							<p>EX @ Line 78</p>
-							<span id= "forLoop"></span>
-						</li>
-						<br>
-						<li><b>While Loop</b>
-							<p>EX @ Line 93</p>
-							<p>Example used is better used for "for" loop, this loop is better used when you don't know how many times a code should run but want to as long as the condition is met</p>
-							<span id= "whileLoop"></span>
-						</li>
-						<li>
-							<b>Do...While Loop</b>
-							<p>Difference w/ the while loop is that the code block comes before the condition which means that the code is run at least ONCE</p>
-							<p>EX @ Line 103</p>
-							<p>Initial # of 10,000 divided by 10 untill i is less than 10</p>
-							<span id= "doWhileLoop"></span>
-						</li>
-					</ol>
-					<div class= "border">
-						<h3>Combining Decisions & Loops EX @ Line 116</h3>
-						<section id= "loopsAndDecisionsEx"></section>
-					</div>
-			</div>
-		</div>
-		<h4 class= "greeting">END OF CHAPTER 4</h4>
-	</div>
-
+	<h3>Three ways to bind an event to an element</h3>
+	<ul>
+		<li><b>HTML Event Handlers</b>
+			<p>DO NOT USE! It is bad practice(cuz it's better to put all code in a JS file, NOT inside HTML) you may see this in older code</p>
+		</li>
+		<li><b>Traditional DOM Event Handlers</b>
+			<p>Better than using html approach and is supported by most major browsers, the disadvantage is that it only allows attaching ONE function to an event - this might cause conflict</p>
+			<p>Example: <b>element.onevent = functionName; JS line 2</b></p>
+			<form>
+				<label>5 Chars of More, OR ELSE!</label>
+				<input type= "text" id= "traditionalInput">
+				<div id= "inputCheck"></div>
+			</form>
+			<br>
+		</li>
+		<li><b>DOM Level 2 Event Listeners</b>
+			<p>Most preferred way of binding BUT may not be supported by much older browsers, allows one event to triggeer multiple functions - much less likely to cause conflict
+			<p>Example:<b>element.addEventListener('event', functionName [,Boolean]);</b></p>
+				<p>Takes three parameters:</p>
+				<p>i: event you wanna listen for</p>
+				<p>ii: code you want it to run</p>
+				<p>iii: Boolean indicating how events flow</p>	
+				<h4>Example at JS Line 16</h4>
+			<form>
+				<label>5 Chars of Less, OR ELSE!</label>
+				<input type= "text" id= "eventListenerInput">
+				<div id= "eventListenerOutput"></div>
+			</form>
+		</li>
+	</ul>
+	
 	<br>
 
-	<h1>Chapter 5: The DOM(Document Object Model)</h1>
 	<div class= "border">
-		<p class= "bold">The DOM specifies how browsers should create a model of an HTML page, how to access JS & update contents of the page on the browser window.</p>
-		<p>The DOM defines methods & properties to access/update objects in this model</p>
-		<p>Commonly called by people as an API(Application Programming Interface)</p>
-		<h4>Examining the DOM in CHROME @ PG 236</h4>
+		<h3>Using Parameters W/ Event Handlers & Listeners</h3>
+		<p>Because you can't add parenthesis() after function names during the binding process, there is a way to work around it</p>
+		<p>To work around this, wrap the function call with an <b>anonymous function</b></p>
+		<p><b>Example:</b> element.addEventListener('blur', <b>function() { checkInputLength(5) };</b>, false);</p>
+		<b>JS Line 28</b>
+		<form>
+			<label>MUST be 5 Chars</label>
+			<input type= "text" id= "parameterInput">
+			<div id= "parameterOutput"></div>
+		</form>
 
-
-
-		<div class= "border">
-			<p><b>DOM TREE:</b>The DOM specifies how a page is structured using the DOM TREE model, this model is made outta objects</p>
-			<ul>
-				<li>
-					<p><b>The Document Node:</b>Represents every element, attribute and piece of text in the HTML page.</p>
-					<p>It is the starting point for access into the DOM tree</p>
-				</li>
-				<li>
-					<p><b>Element Node:</b>Describes the structure of an HTML page</p>
-					<p>Ex: The "h1, h2, p," tags inside <....></p>
-					<p>Used to specifically find a target or access elements inside the DOM tree</p>
-				</li>
-				<li>
-					<p><b>Attribute Node:</b>Represents attributes assigned to the dom tree elements. NOT a child but IS a part of the element carrying it</p>
-				</li>
-				<li>
-					<p><b>Text Node:</b> Texts within an element, stored inside its own node and cannot have children
-				</li>
-			</ul>
-		</div>
-
-		<br>
-
-		<div class= "border">
-			<h4>DOM MANIPULATION BASICS</h4>
-			<b>Two Steps to DOM Manipulation:</b>	
-			<p><b>ONE:</b>Accesss the element</p>
-				<p>Methods that find elements inside the DOM are called <b>DOM Queries:</b>Store results inside a variable</p>
-			<p><b>TWO:</b>Manipulate the element</p>
-			<div class= "border">
-				<p><b>ACCESSING</b></p>
-				<b>Changing CSS values: PG 195, Line 1 @ dom.js</b>
-				<ul>
-					<li class= "warmColor" id= "one">ONE</li>
-					<li class= "warmColor" id= "two">TWO</li>
-					<li class= "warmColor" id= "three">THREE</li>
-					<li class= "warmColor" id= "four">FOUR</li>
-				</ul>
-				<b>Accessing Node Lists:</b>
-				<p>Node Lists look & are numbered like arrays but they are not, it is a type of object called "collection"</p>
-				<p>Node lists also come with properties & methods that can be used like ".length" or "item(whatever)"</p>
-				<p>Ways to select elements inside a Node List</p>
-				<p>The <b>"item()"</b> method: indexed like arrays ie. 0,1,2,.. </p>
-				<p>The <b>Array Syntax</b> name[0,1,2,..] also allows access</p>
-				<b>Ex below @ Line 8</b>
-				<ul>
-					<li class= "warmColor" id= "elemA">ONE</li>
-					<li class= "warmColor" id= "elemB">TWO</li>
-					<li class= "warmColor" id= "elemC">THREE</li>
-					<li class= "warmColor" id= "elemD">FOUR</li>
-				</ul>
-				<p><b>Query Selection: Line 15</b></p>
-				<p>TWO Methods</p>
-				<p>'.querySelector('.blah')':Returns first match</p>
-				<p>'.querySelectorAll('.blah)':Returns a NodeList</p>
-				<ul>
-					<li class= "queryExample" id= "#">ONE</li>
-					<li class= "queryExample" id= "#">TWO</li>
-					<li class= "queryExample" id= "#">THREE</li>
-					<li class= "queryExample" id= "#">FOUR</li>
-				</ul>
-
-				<p><b>Looping NodeList: Line 22</b></p>
-				<ul>
-					<li class= "loopQueryEx" id= "#">ONE:skipped</li>
-					<li class= "loopQueryEx" id= "#">TWO:skipped</li>
-					<li class= "loopQueryEx" id= "#">THREE</li>
-					<li class= "loopQueryEx" id= "#">FOUR</li>
-					<li class= "loopQueryEx" id= "#">FIVE</li>
-					<li class= "loopQueryEx" id= "#">SIZ</li>
-					<li class= "loopQueryEx" id= "#">SEVEN</li>
-					<li class= "queryExample" id= "#">EIGHT: different query name</li>
-				</ul>
-
-				<p><b>Traversing the DOM: Line 33</b></p>
-				<p>Using selected node elements can also give access to other elements in relation to it</p>
-				<p>5 Ways of Traversing</p>
-				<p>"parentNode": moves up one element, ie returns &lt;ul&gt; if &lt;li&gt; is targetted</p>
-				<p>"nextSibling": moves up one step, returns NodeList[2] if targetting NodeList[1]</p>
-				<p>"previousSibling": moves down one step, returns NodeList[0] if targetting NodeList[1]</p>
-				<p>"firstChild":returns first element inside the nodelist</p>
-				<p>"lastChild":returns last element inside a nodelist</p>
-				<p>Using above properties can be difficult sometimes because of <b>whitespace nodes:</b> they are placed between elements and can complicate using these properties. Using Jquery or other libraries can fix this</p>
-				<p><b>EX below if no whitespace exist</b></p>
-				<ul>
-					<li class= "domTraversing" id= "#">ONE</li>
-					<li class= "domTraversing" id= "#">TWO</li>
-					<li class= "domTraversing" id= "#">THREE</li>
-					<li class= "domTraversing" id= "#">FOUR</li>
-					<li class= "domTraversing" id= "#">FIVE</li>
-					<li class= "domTraversing" id= "#">SIZ</li>
-					<li class= "domTraversing" id= "#">SEVEN</li>
-					<li class= "domTraversing" id= "#">EIGHT:</li>
-				</ul>
-				<p><b>EX doesnt work cuz whitespace exist in chrome, gotta use a library >.> </b></p>
-			</div>
-			
-			<br>
-
-			<div class= "border">
-			<p><b>UPDATING/MANIPULATING CONTENT</b></p>
-			<p>Once element nodes are accessed, using <b>nodeValue</b> will allow you to ammmend that element</p>
-			<p>Example below @ line 39</p>
-			<p id= "nodeManipulation" class= "border">Fast <em>car</em></p>	
-			<p>To remove an element, set its innerHTML value to an empty string</p>
-
-			<p><b>Using innerHTML has security risk</b>, there are other ways to manipulate other than using  this method. This involves THREE STEPS:</p>
-			<h4>Adding elements</h4>
-			<ol id= "addingNode" >
-				<li>
-					<p>createElement() = create a new element node, this node is stored inside a variable.</p>
-				</li>
-				<li>
-					<p>createTextNode() = creates a new text node, stored in a variable. Can be skipped if attaching an empty element.</p>
-				</li>
-				<li>
-					<p>appendChild() = allows you to add a node to specified element within the DOM tree.</p>
-				</li>
-				<p>Example below is added from JS line 47
-			</ol>
-			<h4>Deleting elements, Steps</h4>
-			<ol>
-				<li>
-					<p>store the chosen element to be removed/deleted inside a variable
-				</li>
-				<li>
-					<p>store the parent node of that element inside a variable using .parentNode(unless specific parent was chosen you need to specifically target the child)</p>
-				</li>
-				<li>
-					<p>remove element from its containing element using removeChild()
-				</li>
-				<p>Example below was deleted, HTML line 233, JS line 58</p>
-				<li>
-					<p>This doesnt belong here hence it was deleted</p>
-				</li>
-			</ol>
-
-			<h4>Comparing techniques used to manipulate content:</h4>
-				<ul>
-					<li>
-						<p><b>document.write()</b> not recommended(many disadvantages), used for introducing beginners how to add content easily</p>
-					</li>
-					<li>
-						<p><b>element.innerHTML</b> uses less code, can be faster that dom manipulation, and easily remove content by assigning blank strings.</p>
-						<p>has security issues, makes isolating elements to update hard on larger DOMS, event handler issues</p>
-					</li>
-					<li>
-						<p><b>Dom Manipulation: </b> best suited for changing single elements, doesnt affect event handlers, easier to add elements incrementally </p>
-						<p>slower than html(if adding alot of changes), MORE code</p>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-		<br>
-
-		<div class= "border">
-			<h3>SECURITY</h3>
-			<p class= "redText">data you do not have complete control of is known as UNTRUSTED DATA: handle with care!</p>
-
-			<h4>CROSS SITE SCRIPTING(XSS) ATTACKS:</h4>
-			<p>Attackers place malicious code/steal data from website. Mainly from sites that feature content by many people/users.
-			<p>Once accessed by attackes, they gain access to the DOM, Cookies, & session tokens(by users)</p>
-			<p>This could lead to hackers(ha) accessing account payment informations, post malicious content, and spread more malicious code.
-
-			<h4 class="domTraversing">XSS DEFENCE</h4>
-			<h3>Validate Input going to the server,then escape the data from server and database</h3>
-			<p><b>IT IS IMPORTANT TO ADD UNTRUSTED CONTENT IN TEXT ONLY</b></p>
-			<ol>
-				<li>
-					<p><b>VALIDATION:</b> ONLY allow users to input specific characters they need. DONT allow untrusted users to submit HTML/Scripts.. etc. </p>
-					<p>EX: usernames & email adresses are not allowed to have "&, <, >, ) , (" </p>
-					<p>MORE Will be shown at CH 13.</p>
-					<p><b>DO NOT PLACE USER CONTENT INSIDE THESE:</b></p>
-					<p>SCRIPT TAGS: &ltscript&gtNOT HERE&ltscript&gt</p>
-					<p>HTML COMMENTS: &lt!--NOT HERE--&gt</p>
-					<p>TAG NAMEs: &ltnotHere href="/blahhh" /&gt</p>
-					<p>ATTRIBUTES: &ltdiv notHere = "orHere /&gt</p>
-					<p>CSS: {color: NOT HERE, BAD IDEA}</p>
-					
-				</li>
-				<li>
-					<p><b>DOUBLE-CHECK:</b> Attacker can bypass validation by turning JS off, validate data via the server before displaying content/storing data in the databse.</p>
-				</li>
-				<li>
-					<p>The Database can safely contain markup & scripts from TRUSTED SOURCES </p>
-				</li>
-				<li>
-					<p>When data leaves the database, all potential characters should be escaped(to display as characters and not process as code)</p>
-					<p>Characters that can be escaped:(in order of each other)</p>
-					<p>&, <, >, `, ', ", /</p>
-					<p>&amp, &lt, &gt, &#x60, &#x27, &quot, &#x2F : see index.html line 296</p>
-				</li>
-				<li>
-					<p>Ensure <b>YOU</b> are the only one inserting content generated by users into specified template files</p>
-				</li>
-				<li>
-					<p><b>NO DOM FRAGMENTS</b> from untrusted sources!! Should only be added as text once it has been escaped</p>
-				</li>
-			</ol>
-			<p>JS:<b>TRY NOT TO USE innherHTML!  USE textContent/innerText INSTEAD!</b>
-			<p>JQuery: TRY NOT TO USE .html()! USE .text() INSTEAD!</p>
-			<p>use <b>encodeURIComponent()</b> to encode user input when linking user links that require user input. encodes characters = , / ? : @ & = + $ #</p>
-			<p>innterHTML & .html() but ENSURE that YOU control all markups being generated and not allow user content that could contain markups. ENSURE user content is escaped and added as text</p>
-		</div>
-
-		<br>
-
-		<div class= "border">
-			<h3>ATTRIBUTE NODES</h3>
-			<h4>Once you have an element, there are methods to access & change its attributes</h4>
-			<p>TWO STEPS</p>
-			<p>1. Select element node carrying attribute then add "."</p>
-			<p>2. Use methods and properties listed below:</p>
-			<ul>
-				<b>Method</b>
-				<li>getAttribute()</li>
-				<li>hasAttribute()</li>
-				<li>setAttribute()</li>
-				<li>removeAttribute</li>
-
-				<b>Property</b>
-				<li>className</li>
-				<li>id</li>
-			</ul>
-			<p><b>Example: JS  starts at line 66</b> document.getElementById('dimSum').setAttribute('bordered')</p>
-
-			<div id= "attributeNodeExample" class = "border">
-				<div id= "insertAttributeHere"></div>
-
-				<ul id= "attributeNodeListExample">
-					<li class= "redText"><p>ONE: Changed Attribute @ JS Line 77 </p></li>
-					<li class= "redText"><p>TWO</p></li>
-					<li class= "redText"><p>THREE</p></li>
-					<li class= "redText"><p>FOUR</p></li>
-					<li class= "redText"><p>FIRE : Deleted Attribute @ JS Line 82</p></li>
-				</ul>
-			</div>
-		
-			<div class= "border">
-				<h4>Final Example(JS: Line 97): Looping attributes</h4>
-				<ul id= "finalExample">
-					<li><p>A</p></li>
-					<li><p>B</p></li>
-					<li><p>C</p></li>
-					<li><p>D</p></li>
-					<li><p>E</p></li>
-					<h5 id = "whatever">HI</h5>
-				</ul>
-			</div>
-		</div>
-		<h2>END OF CHAPTER 5</h2>
 	</div>
 
-
+</div>
 </body>
-<script src="loopsAndDecisions.js"></script>
-<script src="dom.js"></script>
+<script src= "eventsCH6.js"></script>
 </html>
