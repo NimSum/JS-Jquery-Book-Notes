@@ -43,3 +43,8 @@ h1 {
 	color: red;
 	font-weight: bold;
 }
+.eventHandler {
+	border-style: solid;
+	width: 200px;
+	background-color: green;
+}
