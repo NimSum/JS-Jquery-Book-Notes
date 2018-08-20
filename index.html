@@ -79,12 +79,51 @@
 			<li><b>preventDefault():</b> cancel default behavior of event</li>
 			<li><b>stopPropagation():</b> stop event bubling/capturing</li>
 		</ul>
+
 		<h4>EVENT DELEGATION</h4>
 		<p>Creating event listeners for many elements can slow a page down, event flow allows you to listen for an event on a parent element</p>
-		
+		<p>This simplifies code and allows for easier access to new elements, the use of "this" keyword solves limitations</p>
+		<h4>Page 269 aint working, try again when u get better</h4>
+
+		<br>
+
+		<h4>USER INTERFACE EVENTS</h4>
+		<p><b>User Interface(UI):</b> Events that occur from interaction with the browser window rather than HTML contained within it(<b>IE: page loaded, window resize</b>)</p>
+		<ul>
+			<li><b>load:</b> triggered when page finishes loading, can also trigger nodes of elements that load images/scripts/objects</li>
+			<li><b>unload:</b> triggered when web page is unloading(usually when a new page is requested)</li>
+			<li><b>error:</b> triggered when there is a JS error or asset that tdont exist</li>
+			<li><b>resize:</b> triggered when window is being resized</li>
+			<li><b>scroll:</b> triggered when user scrolls up/down a screen, can be used for a specific element/entire page</li>
+		</ul>
+
+		<h4>Focus & Blur Events</h4>
+		<p><b>focus/focusin:</b>triggered when elements gains focus</p>
+		<p><b>blur/focusout:</b>triggered when element loses focus</p>
 		<div class= "border">
-			<label></label>
+			<form>
+				<label>User Name: </label>
+				<input type= "text" id= "focusAndBlurInput">
+				<div id= "focusAndBlurFeedBack"></div>
+			</form>
 		</div>
+
+		<br>
+
+		<h4>MOUSE EVENTS</h4>
+		<ul>
+			<li><b>click:</b>triggered when user clicks primary mouse button, or when enter is pressed on keyboard when an element is in focus. also works with touchscreen single tap</li>
+			<li><b>dblclick:</b> double click/tap, pretty self explanatory</li>
+			<li><b>mousedown:</b> when user clicks any mouse botton(touchtart for touch function)</li>
+			<li><b>mouseup:</b> when mouse button is released(touchend for touch function)</b></li>
+			<li><b>mouseover:</b> when cursor is moved inside a element</li>
+			<li><b>mouseout:</b> when cursor is moved out of the current element and to another one</li>
+			<li><b>mousemove:</b> when mouse cursor is being moved inside an element(repeated)</li>
+			<p><b>mouseup & mousedown</b> are separated for drag & drop features/game development functionality</p>
+		</ul>
+		<button type= "button" id= "button">
+			DO NOT CLICK
+		</button>
 	</div>
 
 </div>

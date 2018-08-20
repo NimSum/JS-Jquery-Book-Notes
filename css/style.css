@@ -46,5 +46,8 @@ h1 {
 .eventHandler {
 	border-style: solid;
 	width: 200px;
-	background-color: green;
+	background-color: red;
+}
+.eventHandlerChild {
+	color: blue;
 }
