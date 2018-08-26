@@ -99,27 +99,38 @@ el.addEventListener('blur', checkUserName, false);//listen for blur event
 
 
 //MOUSE EVENTS
-var msg = 'div class=\"header\"><a id=\"close\" href "#">close X</a></div>';
-msg += '<div><h2>YOU SHOULD NOT HAVE DONE THAT</h2>';
-msg += 'Now you will pay the price!';
-msg += 'The price of clicking that exit button on the top right! Muahahaha.</div>';
-
-// var warningMessage = document.createElement('div');
-// warningMessage.setAttribute('id', 'note');
-// warningMessage.innerHTML = msg;
-// document.body.appendChild('warningMessage');
-
-// function dismissWarning() {
-// 	document.body.removeChild(warningMessage);
-// }
-
-// var closeWarning = document.getElementById('button');
-// closeWarning.addEventListener('click', dismissWarning, false);
-
+///msg in html including css tags
+var msg = '<div class=\"closeButton\"><a id=\"close\" href "#">Close X</a></div>';
+msg += '<div class=\"messageTemplate\"><div><h2>YOU SHOULD NOT HAVE DONE THAT!</h2>';
+msg += '<br>Now you will pay the price!';
+msg += '<br>The price of clicking that exit button on the top right! Muahahaha.</div></div>';
+//function executes when button is clicked
 function warningMessage() {
-	var warningPopUp = document.createElement('div');
+	var warningPopUp = document.getElementById('warningMsg');
 	warningPopUp.innerHTML = msg;
 }
-var buttonClick = document.getElementById('button');
+//button is placed into a variable and linked to an event
+var buttonClick = document.getElementById('bttn');
 buttonClick.addEventListener('click', warningMessage, false);
+
+console.log(screenX());
+//EVENT OCCURANCE LOCATOR----NOT WORKING :/
+// var sx = document.getElementById('sX');
+// var sy = document.getElementById('sY');
+// var px = document.getElementById('pX');
+// var py = document.getElementById('pY');
+// var cx = document.getElementById('cX');
+// var cy = document.getElementById('cY');
+
+// function whereAtXY(event)  {
+// 	sx.value = event.screenX;
+// 	sy.value = event.screenY;
+// 	px.value = event.pageX;
+// 	py.value = event.pageY;
+// 	cx.value = event.clientX;
+// 	cy.value = event.clientY;
+// }
+// var inputLocation = document.getElementsById('body');
+// inputLocation.addEventListener('mousemove', whereAtXY, false);
+
 

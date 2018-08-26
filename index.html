@@ -121,10 +121,53 @@
 			<li><b>mousemove:</b> when mouse cursor is being moved inside an element(repeated)</li>
 			<p><b>mouseup & mousedown</b> are separated for drag & drop features/game development functionality</p>
 		</ul>
-		<button type= "button" id= "button">
+		<h4>Mouse events example:</h4>
+		<button type= "button" id= "bttn">
 			DO NOT CLICK
 		</button>
+		<div id= "warningMsg"></div>
+
+		<br>
+
+		<div>
+			<h3>Locating Event Occurrence</h3>
+			<p><b>Screen Location</b></p>
+			<p>Position of cursor within the user monitor</p>
+			<p>screenX : screenY</p>
+				<div class= "xAndYLocator">
+					<p><b>screenX:</b></p><span id= "sX"></span>
+					<p><b>screenY:</b></p><span id= "sY"></span>
+				</div>
+			<p><b>Page Location</b></p>
+			<p>Position of cursor within the entire web page</p>
+			<p>psageXd : pageY</p>
+				<div class= "xAndYLocator">
+					<p><b>pageX:</b></p><span id= "pX"></span>
+					<p><b>pageY:</b></p><span id= "pY"></span>
+				</div>
+			<p><b>Cliexnt Location</b></p>
+			<p>Cursor position within the browser viewport</p>
+			<p>clientX : clientY</p>
+				<div class= "xAndYLocator">
+					<p><b>clientX:</b></p><span id= "cX"></span>
+					<p><b>clientY:</b></p><span id= "cY"></span>
+				</div>
+		</div>
+
+		<br>
+
+		<div>
+			<h3>KEYBOARD EVENTS</h3>
+			<p>input: when value of &lt input &gt, &lt textarea &gt is changed</p>
+			<p>keydown: triggered when any key is pressed(repeated when key is held down, works for all keys)</p>
+			<p>keypress: when user presses a key that will show a character on the screen(will not work with arrows)</p>
+			<p>keyup: when key is released</p>
+			<p>keyCode will reveal which key is pressed IN ASCII code, can be converted by using fromCharCode(), <b>ex: String.fromCharCharCode(event.keyCode);</b>
+		</div>
+
+
 	</div>
+
 
 </div>
 </body>

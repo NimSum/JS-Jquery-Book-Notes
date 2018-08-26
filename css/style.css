@@ -51,3 +51,22 @@ h1 {
 .eventHandlerChild {
 	color: blue;
 }
+.closeButton {
+	border-style: solid;
+	width: 60px;
+	margin: 5px;
+	float: right;
+	text-align: center;
+}
+.messageTemplate {
+	border-style: solid;
+	padding: 8px;
+	text-align: center;
+	color: red;
+}
+
+.xAndYLocator {
+	border-style: solid;
+	color: blue;
+	width: 100px;
+}
