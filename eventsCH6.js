@@ -113,24 +113,69 @@ function warningMessage() {
 var buttonClick = document.getElementById('bttn');
 buttonClick.addEventListener('click', warningMessage, false);
 
-console.log(screenX());
-//EVENT OCCURANCE LOCATOR----NOT WORKING :/
-// var sx = document.getElementById('sX');
-// var sy = document.getElementById('sY');
-// var px = document.getElementById('pX');
-// var py = document.getElementById('pY');
-// var cx = document.getElementById('cX');
-// var cy = document.getElementById('cY');
 
-// function whereAtXY(event)  {
-// 	sx.value = event.screenX;
-// 	sy.value = event.screenY;
-// 	px.value = event.pageX;
-// 	py.value = event.pageY;
-// 	cx.value = event.clientX;
-// 	cy.value = event.clientY;
-// }
-// var inputLocation = document.getElementsById('body');
-// inputLocation.addEventListener('mousemove', whereAtXY, false);
+//EVENT OCCURANCE LOCATOR
+//place output locations inside a variable
+var sx = document.getElementById('sX');
+var sy = document.getElementById('sY');
+var px = document.getElementById('pX');
+var py = document.getElementById('pY');
+var cx = document.getElementById('cX');
+var cy = document.getElementById('cY');
+//set function that will update mouse location live
+function whereAtXY(event)  {
+	sx.value = event.screenX;
+	sy.value = event.screenY;
+	px.value = event.pageX;
+	py.value = event.pageY;
+	cx.value = event.clientX;
+	cy.value = event.clientY;
+}
+//set event listener
+var inputLocation = document.getElementById('body');
+inputLocation.addEventListener('mousemove', whereAtXY, false);
 
 
+////KEYPRESS FUNCTION
+function charCount(e) {
+	var textEntered, charDisplay, counter, lastkey;//variables
+	textEntered = document.getElementById('keyPressInput').value;//set text input into a var
+	charDisplay = document.getElementById('keyPressOutput');//set output location
+	counter = (180 - (textEntered.length));//count chars
+	charDisplay.textContent = counter;//combine counter output to output location
+
+
+	// lastkey = document.getElementById('keyPressOutput2');
+	// lastkey.textContent = 'Last key in ASCII code: ' + e.keyCode;//dunno why keycode doesnt work
+}
+//add set event listener
+var keys = document.getElementById('keyPressInput');
+keys.addEventListener('keyup', charCount, false);
+
+//FORM EVENTS
+var elForm, elSelectPackage, elPackageHint, elTerms, elTermsHint;
+elForm = document.getElementById('formSignup');
+elSelectPackage = document.getElementById('package');
+elPackageHint = document.getElementById('packageHint');
+elTerms = document.getElementById('terms');
+elTermsHint = document.getElementById('termsHint');
+
+function packageHint() {
+	var pack = this.options[this.selectedIndex].value;
+	if (pack == 'oneDay') {
+		elPackageHint.innerHTML = 'ONE DAY IS ALL YOU NEED TO CHECK THIS EXPERIENCE OUTTA YOUR BUCKET LIST!';
+	} else if (pack == 'oneWeek') {
+		elPackageHint.innerHTML = 'ONE WEEK IS ENOUGH TO MAKE YOUR FRIENDS YOU OWN THE CAR! SHOW IT OFF!!';
+	} else {
+		elPackageHint.innerHTML = 'BABABABABALLLLING OUTTA CONTROL!';
+	}
+}
+function checkTerms(event) {
+	if (!elTerms.checked) {
+		elTermsHint.innerHTML = 'If you want the lambo, gotta check this box!';
+		event.preventDefault();
+	}
+}
+
+elForm.addEventListener('submit', checkTerms, false);
+elSelectPackage.addEventListener('change', packageHint, false);

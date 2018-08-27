@@ -6,7 +6,7 @@
 	<title>Events</title>
 	<title>Chapter 6</title>
 </head>
-<body>
+<body id= "body">
 <h1>Chapter 6: Events</h1>
 <div class= "border">
 
@@ -135,22 +135,22 @@
 			<p>Position of cursor within the user monitor</p>
 			<p>screenX : screenY</p>
 				<div class= "xAndYLocator">
-					<p><b>screenX:</b></p><span id= "sX"></span>
-					<p><b>screenY:</b></p><span id= "sY"></span>
+					screenX: <input type="text" id="sX" /> 
+      				screenY: <input type="text" id="sY" />
 				</div>
 			<p><b>Page Location</b></p>
 			<p>Position of cursor within the entire web page</p>
-			<p>psageXd : pageY</p>
+			<p>pageX : pageY</p>
 				<div class= "xAndYLocator">
-					<p><b>pageX:</b></p><span id= "pX"></span>
-					<p><b>pageY:</b></p><span id= "pY"></span>
+					pageX: <input type="text" id="pX" /> 
+    				pageY: <input type="text" id="pY" />
 				</div>
 			<p><b>Cliexnt Location</b></p>
 			<p>Cursor position within the browser viewport</p>
 			<p>clientX : clientY</p>
 				<div class= "xAndYLocator">
-					<p><b>clientX:</b></p><span id= "cX"></span>
-					<p><b>clientY:</b></p><span id= "cY"></span>
+					 clientX: <input type="text" id="cX" /> 
+     				 clientY: <input type="text" id="cY" />
 				</div>
 		</div>
 
@@ -163,9 +163,57 @@
 			<p>keypress: when user presses a key that will show a character on the screen(will not work with arrows)</p>
 			<p>keyup: when key is released</p>
 			<p>keyCode will reveal which key is pressed IN ASCII code, can be converted by using fromCharCode(), <b>ex: String.fromCharCharCode(event.keyCode);</b>
+				<div>
+					<form>
+						<label>INPUT BOX</label>
+						<input type= "text" id= "keyPressInput">
+						<div id= "keypressOutput2"></div>
+						<div id= "keyPressOutput"></div>
+					</form>
+				</div>
 		</div>
 
+		<div>
+			<h4>FORM EVENTS</h4>
+			<p>submit: triggered when a form is submitted,using &lt form &gt, used for checking values a user will be submitting to the server </p>
+			<p>change: triggered when a form element is modified, IE(dropdowns/radio button/checkbox)</p>
+			<p>input: triggered when &lt input &gt &lt textarea &gt</p>
+			<p><b>Validation:</b> checking form values from users before submitting to the server is faster than using the server to validate user submitted data</p>
+			<h4>FORM EVENT EXAMPLE</h4>
+			<div class= "border">
+			      <form method="post" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="formSignup">
+			        <h3>LAMBO, LAMBO, LAMBO</h3>
+			        <h4>1-800-LAMBO!</h4>
 
+			        <label for= "package" class="selectbox"> Rent a Lambo!</label>
+			        <select id= "package">
+			          <option value= "lifetime">ITS YOURS FOR: $299,999</option>
+			          <option value= "oneDay">1 DAY($1,000)</option>
+			          <option value= "oneWeek">1 WEEK($1,000)</option>
+			        </select>
+			        <div id= "packageHint" class="tip"></div>
+
+			        <input type= "checkbox" id="terms" />
+			        <label for= "terms" class= "checkbox"> You break it, you pay for it! Insurance not included.</label>
+			        <div id= "termsHint" class= "warning"></div>
+
+			        <input type= "submit" value= "next" />
+			        </form>
+			</div>
+		</div>
+
+		<br>
+
+		<div>
+			<h3>MUTATION EVENTS & OBSERVERS</h3>
+			<h4>When the structure of the DOM is changed, this triggers a mutation event</h4>
+			<p>DOMNodeInserted: Triggered when a node is inserted into the DOM TREE(<b>appendChild(),replaceChild(), or insertBefore()</b>)</p>
+			<p>DOMNodeRemoved: Triggered when a node is removed into the DOM TREE(<b>removeChild(), or replaceChild()</b>)</p>
+			<p>DOMSubtreeModified: Triggered when DOM structure changes(removed/added)</p>
+			<p>DOMNodeInsertIntoDocument: Triggered when a node inserted as a descendant of another node that is already a doc</p>
+			<p>DOMNodeRemovedFromDocument: reverse of above</p>
+			<p><b>MUTATION EVENT ISSUES:</b>If making many changes in the DOM, multiple mutation events will fire and can cause unresponsiveness, it is better to use <b>Mutation Observers</b> which waits untill the script is finished its tast before firing. More support at this time</p>
+		</div>
 	</div>
 
 

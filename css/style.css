@@ -68,5 +68,6 @@ h1 {
 .xAndYLocator {
 	border-style: solid;
 	color: blue;
-	width: 100px;
+	width: 200px;
+	padding: 10px;
 }
