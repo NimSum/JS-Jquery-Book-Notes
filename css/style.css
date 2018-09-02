@@ -71,3 +71,24 @@ h1 {
 	width: 200px;
 	padding: 10px;
 }
+
+a[data-state='stop'] {
+	background-color: blue; 
+}
+a[data-state='record'] {
+	background-color: red;
+}
+
+#buttons {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;}
+  
+#buttons a {
+  width: 100px;
+  height: 100px; 
+  text-indent: 100%;
+  margin-top: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;}

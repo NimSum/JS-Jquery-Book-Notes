@@ -100,6 +100,7 @@
 		<h4>Focus & Blur Events</h4>
 		<p><b>focus/focusin:</b>triggered when elements gains focus</p>
 		<p><b>blur/focusout:</b>triggered when element loses focus</p>
+		<p><b>EX: JS Line 79</b></p>
 		<div class= "border">
 			<form>
 				<label>User Name: </label>
@@ -121,7 +122,7 @@
 			<li><b>mousemove:</b> when mouse cursor is being moved inside an element(repeated)</li>
 			<p><b>mouseup & mousedown</b> are separated for drag & drop features/game development functionality</p>
 		</ul>
-		<h4>Mouse events example:</h4>
+		<h4>Mouse events example: Line 101</h4>
 		<button type= "button" id= "bttn">
 			DO NOT CLICK
 		</button>
@@ -130,7 +131,7 @@
 		<br>
 
 		<div>
-			<h3>Locating Event Occurrence</h3>
+			<h3>Locating Event Occurrence: Line 117</h3>
 			<p><b>Screen Location</b></p>
 			<p>Position of cursor within the user monitor</p>
 			<p>screenX : screenY</p>
@@ -157,7 +158,7 @@
 		<br>
 
 		<div>
-			<h3>KEYBOARD EVENTS</h3>
+			<h3>KEYBOARD EVENTS: Line 139</h3>
 			<p>input: when value of &lt input &gt, &lt textarea &gt is changed</p>
 			<p>keydown: triggered when any key is pressed(repeated when key is held down, works for all keys)</p>
 			<p>keypress: when user presses a key that will show a character on the screen(will not work with arrows)</p>
@@ -179,7 +180,7 @@
 			<p>change: triggered when a form element is modified, IE(dropdowns/radio button/checkbox)</p>
 			<p>input: triggered when &lt input &gt &lt textarea &gt</p>
 			<p><b>Validation:</b> checking form values from users before submitting to the server is faster than using the server to validate user submitted data</p>
-			<h4>FORM EVENT EXAMPLE</h4>
+			<h4>FORM EVENT EXAMPLE: Line 155</h4>
 			<div class= "border">
 			      <form method="post" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="formSignup">
 			        <h3>LAMBO, LAMBO, LAMBO</h3>
@@ -213,9 +214,49 @@
 			<p>DOMNodeInsertIntoDocument: Triggered when a node inserted as a descendant of another node that is already a doc</p>
 			<p>DOMNodeRemovedFromDocument: reverse of above</p>
 			<p><b>MUTATION EVENT ISSUES:</b>If making many changes in the DOM, multiple mutation events will fire and can cause unresponsiveness, it is better to use <b>Mutation Observers</b> which waits untill the script is finished its tast before firing. More support at this time</p>
+			<div id="page" class= "border">
+			  <p><b>MUTATION EVENT EX: Line 186</b></p>
+		      <h3>List Counter</h3>
+		      <h4>In Cart: <span id="counter">1</span></h4>
+		      <ul id= "list">
+		        <li>Want but don't need</li>
+		      </ul>
+		      <div class= "button"><a href= "#">Add list item</a></div>
+		    </div>
+			
+			<br>
+
+			<div>
+				<h4>HTML5 EVENTS</h4>
+				<p><b>DOMContentLoaded:</b> Triggered when DOM tree is formed even tho images/CSS/ & JS might still be loading.</p>
+				<p><b>hashchange:</b> Triggered when URL hash changes without the entire window refreshing, after firing it will have oldURL & newURL properties that hold the old & new url after the hashchange</p>
+				<p><b>beforeunload:</b> Triggered when page is unloaded, it should be used to help user, not keep user on the page if trying to leave the page</p>
+				<div class= "messageTemplate">
+					<h4>EXAMPLE: Line 210</h4>
+					<h5>User Prompt</h5>
+					<form id= "messageForm">
+
+						<textarea id= "userOutput"></textarea>
+						<input type= "submit" value= "next"/>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 
+<br>
+
+	<div class= "border">
+		<h3>FINAL EXAMPLE</h3>
+		<h3 id= "noteName">Audio Note</h3>
+		<form action= "#">
+			<label for= "noteInput">Enter note name:</label>
+			<input type= "text" id= "noteInput" />
+			<div id= "buttons">
+				<a data-state = "record" href= "">Record</a>
+			</div>
+		</form>
+	</div>
 
 </div>
 </body>

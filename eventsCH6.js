@@ -153,15 +153,16 @@ var keys = document.getElementById('keyPressInput');
 keys.addEventListener('keyup', charCount, false);
 
 //FORM EVENTS
+//declare variables then set target locations
 var elForm, elSelectPackage, elPackageHint, elTerms, elTermsHint;
 elForm = document.getElementById('formSignup');
 elSelectPackage = document.getElementById('package');
 elPackageHint = document.getElementById('packageHint');
 elTerms = document.getElementById('terms');
 elTermsHint = document.getElementById('termsHint');
-
+//function that tracks which option is selected and a corresponding message will appear
 function packageHint() {
-	var pack = this.options[this.selectedIndex].value;
+	var pack = this.options[this.selectedIndex].value;//tracks which option is selected
 	if (pack == 'oneDay') {
 		elPackageHint.innerHTML = 'ONE DAY IS ALL YOU NEED TO CHECK THIS EXPERIENCE OUTTA YOUR BUCKET LIST!';
 	} else if (pack == 'oneWeek') {
@@ -170,12 +171,113 @@ function packageHint() {
 		elPackageHint.innerHTML = 'BABABABABALLLLING OUTTA CONTROL!';
 	}
 }
+//function checks if checkbox is selected, if not, disable submit button
 function checkTerms(event) {
 	if (!elTerms.checked) {
 		elTermsHint.innerHTML = 'If you want the lambo, gotta check this box!';
 		event.preventDefault();
 	}
 }
-
+//set event listeners for message & submit
 elForm.addEventListener('submit', checkTerms, false);
 elSelectPackage.addEventListener('change', packageHint, false);
+
+
+//MUTATION EVENT
+//list all vars needed
+var elList, addLink, newEl, newText, counter, listItems;
+//link vars to dom
+elList = document.getElementById('list');
+addLink = document.querySelector('a');
+counter = document.getElementById('counter');
+
+function addItem(e) {
+	e.preventDefault();//stop default function of 'a'
+	newEl = document.createElement('li');//create a new li item
+	newText = document.createTextNode('Impulse Buy');//new text node of li item
+	newEl.appendChild(newText);//insert text inside element
+	elList.appendChild(newEl);//insert li item to UL
+}
+
+function updateCount() {//count list items inside elList
+	listItems = elList.getElementsByTagName('li').length;
+	counter.innerHTML = listItems;
+}
+
+addLink.addEventListener('click', addItem, false);//on click run addItem 
+elList.addEventListener('DOMNodeInserted', updateCount, false);//when new node is inserted update cart content
+
+//HTML EVENTS -- comented out to prevent popups
+// function setup() {
+// 	var textInput;
+// 	textInput = document.getElementById('userOutput');
+// 	textInput.focus();
+// }
+
+// window.addEventListener('DOMContentLoaded', setup, false);
+
+// window.addEventListener('beforeunload', function(event) {
+// 	var closeMessage = 'You forgot sumtin...';
+// 	(event || window.event).returnValue = closeMessage;
+// 	return closeMessage;
+//});
+
+
+//CHAPTER 6 FINAL EXAMPLE
+var noteInput, noteName, textEntered, target;
+
+noteName = document.getElementById('noteName');
+noteInput = document.getElementById('noteInput');
+
+function writeLabel(e) {
+	if(!e) {
+		e = window.event;
+	}
+	target = e.target || e.srcElement;
+	textEntered = target.value;
+	noteName.textContent = textEntered;
+}
+
+//record/pause control functions
+if (document.addEventListener) {
+	document.addEventListener('click', function(e) {
+		recorderControls(e);
+	}, false);
+	noteInput.addEventListener('input', writeLabel, false);
+} else {
+	document.attachEvent('onclick', function(e) {
+		recorderControls(e);
+	});
+	noteInput.attachEvent('onkeyup', writeLabel);
+}
+
+function recorderControls(e) {
+	if (!e) {
+		e = window.event;
+	}
+	target = e.target || e.srcElement;
+	if (e.preventDefault) {
+		e.preventDefault();
+	} else {
+		e.returnValue = false;
+	}
+
+	switch (target.getAttribute('data-state')) {
+		case 'record':
+			record(target);
+			break;
+		case 'stop':
+			stop(target);
+			break;
+	}
+}
+
+function record(target) {
+	target.setAttribute('data-state', 'stop');
+	target.textContent = 'stop'
+}
+
+function stop(target) {	
+	target.setAttribute('data-state', 'record');
+	target.textContent = 'record';
+}
