@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href= "css/style.css">
+	<title>Events</title>
+	<title>Chapter 6</title>
+</head>
+<body id= "body">
+<h1>Chapter 6: Events</h1>
+<div class= "border">
+
+	<h3>Event Handling Process:</h3>
+	<ol>
+		<li>Select Element Nodes you want a script to respond to</li>
+		<li>Indicate which event will trigger a response(called <b>"binding"</b>)</li>
+		<li>Code the response to your liking</li>
+	</ol>
+
+	<h3>Three ways to bind an event to an element</h3>
+	<ul>
+		<li><b>HTML Event Handlers</b>
+			<p>DO NOT USE! It is bad practice(cuz it's better to put all code in a JS file, NOT inside HTML) you may see this in older code</p>
+		</li>
+		<li><b>Traditional DOM Event Handlers</b>
+			<p>Better than using html approach and is supported by most major browsers, the disadvantage is that it only allows attaching ONE function to an event - this might cause conflict</p>
+			<p>Example: <b>element.onevent = functionName; JS line 2</b></p>
+			<form>
+				<label>5 Chars of More, OR ELSE!</label>
+				<input type= "text" id= "traditionalInput">
+				<div id= "inputCheck"></div>
+			</form>
+			<br>
+		</li>
+		<li><b>DOM Level 2 Event Listeners</b>
+			<p>Most preferred way of binding BUT may not be supported by much older browsers, allows one event to triggeer multiple functions - much less likely to cause conflict
+			<p>Example:<b>element.addEventListener('event', functionName [,Boolean]);</b></p>
+				<p>Takes three parameters:</p>
+				<p>i: event you wanna listen for</p>
+				<p>ii: code you want it to run</p>
+				<p>iii: Boolean indicating how events flow</p>	
+				<h4>Example at JS Line 16</h4>
+			<form>
+				<label>5 Chars of Less, OR ELSE!</label>
+				<input type= "text" id= "eventListenerInput">
+				<div id= "eventListenerOutput"></div>
+			</form>
+		</li>
+	</ul>
+	
+	<br>
+
+	<div class= "border">
+		<h3>Using Parameters W/ Event Handlers & Listeners</h3>
+		<p>Because you can't add parenthesis() after function names during the binding process, there is a way to work around it</p>
+		<p>To work around this, wrap the function call with an <b>anonymous function</b></p>
+		<p><b>Example:</b> element.addEventListener('blur', <b>function() { checkInputLength(5) };</b>, false);</p>
+		<b>JS Line 28</b>
+		<form>
+			<label>MUST be 5 Chars</label>
+			<input type= "text" id= "parameterInput">
+			<div id= "parameterOutput"></div>
+		</form>
+	</div>
+
+	<br>
+
+	<div class= "border">
+		<h4>EVENT OBJECTS</h4>	
+		<p>The event object tells you information about an event. IE(<b>Element Location, Key Press, Viewport Location</b>)</p>
+		<p><b>"e"</b> may stand for event, but some dev's may use "e" as an error</p>
+		<ul>
+			<h4>Propterties</h4>
+			<li><b>target:</b> event target</li>
+			<li><b>type:</b> type of event</li>
+			<li><b>cancelable:</b> cancel default behavior of element</li>
+
+			<h4>Methods</h4>
+			<li><b>preventDefault():</b> cancel default behavior of event</li>
+			<li><b>stopPropagation():</b> stop event bubling/capturing</li>
+		</ul>
+
+		<h4>EVENT DELEGATION</h4>
+		<p>Creating event listeners for many elements can slow a page down, event flow allows you to listen for an event on a parent element</p>
+		<p>This simplifies code and allows for easier access to new elements, the use of "this" keyword solves limitations</p>
+		<h4>Page 269 aint working, try again when u get better</h4>
+
+		<br>
+
+		<h4>USER INTERFACE EVENTS</h4>
+		<p><b>User Interface(UI):</b> Events that occur from interaction with the browser window rather than HTML contained within it(<b>IE: page loaded, window resize</b>)</p>
+		<ul>
+			<li><b>load:</b> triggered when page finishes loading, can also trigger nodes of elements that load images/scripts/objects</li>
+			<li><b>unload:</b> triggered when web page is unloading(usually when a new page is requested)</li>
+			<li><b>error:</b> triggered when there is a JS error or asset that tdont exist</li>
+			<li><b>resize:</b> triggered when window is being resized</li>
+			<li><b>scroll:</b> triggered when user scrolls up/down a screen, can be used for a specific element/entire page</li>
+		</ul>
+
+		<h4>Focus & Blur Events</h4>
+		<p><b>focus/focusin:</b>triggered when elements gains focus</p>
+		<p><b>blur/focusout:</b>triggered when element loses focus</p>
+		<p><b>EX: JS Line 79</b></p>
+		<div class= "border">
+			<form>
+				<label>User Name: </label>
+				<input type= "text" id= "focusAndBlurInput">
+				<div id= "focusAndBlurFeedBack"></div>
+			</form>
+		</div>
+
+		<br>
+
+		<h4>MOUSE EVENTS</h4>
+		<ul>
+			<li><b>click:</b>triggered when user clicks primary mouse button, or when enter is pressed on keyboard when an element is in focus. also works with touchscreen single tap</li>
+			<li><b>dblclick:</b> double click/tap, pretty self explanatory</li>
+			<li><b>mousedown:</b> when user clicks any mouse botton(touchtart for touch function)</li>
+			<li><b>mouseup:</b> when mouse button is released(touchend for touch function)</b></li>
+			<li><b>mouseover:</b> when cursor is moved inside a element</li>
+			<li><b>mouseout:</b> when cursor is moved out of the current element and to another one</li>
+			<li><b>mousemove:</b> when mouse cursor is being moved inside an element(repeated)</li>
+			<p><b>mouseup & mousedown</b> are separated for drag & drop features/game development functionality</p>
+		</ul>
+		<h4>Mouse events example: Line 101</h4>
+		<button type= "button" id= "bttn">
+			DO NOT CLICK
+		</button>
+		<div id= "warningMsg"></div>
+
+		<br>
+
+		<div>
+			<h3>Locating Event Occurrence: Line 117</h3>
+			<p><b>Screen Location</b></p>
+			<p>Position of cursor within the user monitor</p>
+			<p>screenX : screenY</p>
+				<div class= "xAndYLocator">
+					screenX: <input type="text" id="sX" /> 
+      				screenY: <input type="text" id="sY" />
+				</div>
+			<p><b>Page Location</b></p>
+			<p>Position of cursor within the entire web page</p>
+			<p>pageX : pageY</p>
+				<div class= "xAndYLocator">
+					pageX: <input type="text" id="pX" /> 
+    				pageY: <input type="text" id="pY" />
+				</div>
+			<p><b>Cliexnt Location</b></p>
+			<p>Cursor position within the browser viewport</p>
+			<p>clientX : clientY</p>
+				<div class= "xAndYLocator">
+					 clientX: <input type="text" id="cX" /> 
+     				 clientY: <input type="text" id="cY" />
+				</div>
+		</div>
+
+		<br>
+
+		<div>
+			<h3>KEYBOARD EVENTS: Line 139</h3>
+			<p>input: when value of &lt input &gt, &lt textarea &gt is changed</p>
+			<p>keydown: triggered when any key is pressed(repeated when key is held down, works for all keys)</p>
+			<p>keypress: when user presses a key that will show a character on the screen(will not work with arrows)</p>
+			<p>keyup: when key is released</p>
+			<p>keyCode will reveal which key is pressed IN ASCII code, can be converted by using fromCharCode(), <b>ex: String.fromCharCharCode(event.keyCode);</b>
+				<div>
+					<form>
+						<label>INPUT BOX</label>
+						<input type= "text" id= "keyPressInput">
+						<div id= "keypressOutput2"></div>
+						<div id= "keyPressOutput"></div>
+					</form>
+				</div>
+		</div>
+
+		<div>
+			<h4>FORM EVENTS</h4>
+			<p>submit: triggered when a form is submitted,using &lt form &gt, used for checking values a user will be submitting to the server </p>
+			<p>change: triggered when a form element is modified, IE(dropdowns/radio button/checkbox)</p>
+			<p>input: triggered when &lt input &gt &lt textarea &gt</p>
+			<p><b>Validation:</b> checking form values from users before submitting to the server is faster than using the server to validate user submitted data</p>
+			<h4>FORM EVENT EXAMPLE: Line 155</h4>
+			<div class= "border">
+			      <form method="post" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="formSignup">
+			        <h3>LAMBO, LAMBO, LAMBO</h3>
+			        <h4>1-800-LAMBO!</h4>
+
+			        <label for= "package" class="selectbox"> Rent a Lambo!</label>
+			        <select id= "package">
+			          <option value= "lifetime">ITS YOURS FOR: $299,999</option>
+			          <option value= "oneDay">1 DAY($1,000)</option>
+			          <option value= "oneWeek">1 WEEK($1,000)</option>
+			        </select>
+			        <div id= "packageHint" class="tip"></div>
+
+			        <input type= "checkbox" id="terms" />
+			        <label for= "terms" class= "checkbox"> You break it, you pay for it! Insurance not included.</label>
+			        <div id= "termsHint" class= "warning"></div>
+
+			        <input type= "submit" value= "next" />
+			        </form>
+			</div>
+		</div>
+
+		<br>
+
+		<div>
+			<h3>MUTATION EVENTS & OBSERVERS</h3>
+			<h4>When the structure of the DOM is changed, this triggers a mutation event</h4>
+			<p>DOMNodeInserted: Triggered when a node is inserted into the DOM TREE(<b>appendChild(),replaceChild(), or insertBefore()</b>)</p>
+			<p>DOMNodeRemoved: Triggered when a node is removed into the DOM TREE(<b>removeChild(), or replaceChild()</b>)</p>
+			<p>DOMSubtreeModified: Triggered when DOM structure changes(removed/added)</p>
+			<p>DOMNodeInsertIntoDocument: Triggered when a node inserted as a descendant of another node that is already a doc</p>
+			<p>DOMNodeRemovedFromDocument: reverse of above</p>
+			<p><b>MUTATION EVENT ISSUES:</b>If making many changes in the DOM, multiple mutation events will fire and can cause unresponsiveness, it is better to use <b>Mutation Observers</b> which waits untill the script is finished its tast before firing. More support at this time</p>
+			<div id="page" class= "border">
+			  <p><b>MUTATION EVENT EX: Line 186</b></p>
+		      <h3>List Counter</h3>
+		      <h4>In Cart: <span id="counter">1</span></h4>
+		      <ul id= "list">
+		        <li>Want but don't need</li>
+		      </ul>
+		      <div class= "button"><a href= "#">Add list item</a></div>
+		    </div>
+			
+			<br>
+
+			<div>
+				<h4>HTML5 EVENTS</h4>
+				<p><b>DOMContentLoaded:</b> Triggered when DOM tree is formed even tho images/CSS/ & JS might still be loading.</p>
+				<p><b>hashchange:</b> Triggered when URL hash changes without the entire window refreshing, after firing it will have oldURL & newURL properties that hold the old & new url after the hashchange</p>
+				<p><b>beforeunload:</b> Triggered when page is unloaded, it should be used to help user, not keep user on the page if trying to leave the page</p>
+				<div class= "messageTemplate">
+					<h4>EXAMPLE: Line 210</h4>
+					<h5>User Prompt</h5>
+					<form id= "messageForm">
+
+						<textarea id= "userOutput"></textarea>
+						<input type= "submit" value= "next"/>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<br>
+
+	<div class= "border borderHeight'">
+		<h3>FINAL EXAMPLE</h3>
+		<h3 id= "noteName">Audio Note</h3>
+		<form action= "#">
+			<label for= "noteInput">Enter note name:</label>
+			<input type= "text" id= "noteInput" />
+			<div id= "buttons">
+				<a data-state = "record" href= "">Record</a>
+			</div>
+		</form>
+	</div>
+
+</div>
+</body>
+<script src= "eventsCH6.js"></script>
+</html>

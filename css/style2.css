@@ -1,0 +1,20 @@
+.border {
+	border-style: solid;
+	padding: 5px;
+}
+.heading {
+	font-weight: bold;
+	text-align: center;
+}
+.highlighted {
+	color: orange;
+	font-weight: bold;
+}
+.simpleBoxes {
+	background-color: yellow;
+	width: 100px;
+	border-style: solid;
+}
+.simpleHeadline {
+	color: blue;
+}

@@ -80,15 +80,20 @@ a[data-state='record'] {
 }
 
 #buttons {
-  height: 100px;
-  width: 100px;
-  margin: 0 auto;}
-  
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+.buttonHeight {
+	height:200px;
+}
+
 #buttons a {
   width: 100px;
   height: 100px; 
   text-indent: 100%;
-  margin-top: 20px;
   display: inline-block;
   white-space: nowrap;
-  overflow: hidden;}
+  overflow: hidden;
+}

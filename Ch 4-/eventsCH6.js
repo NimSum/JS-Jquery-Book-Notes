@@ -281,3 +281,4 @@ function stop(target) {
 	target.setAttribute('data-state', 'record');
 	target.textContent = 'record';
 }
+//////END OF CHAPTER 6
